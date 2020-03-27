@@ -1,0 +1,42 @@
+﻿@model TelaLogin.Models.Login
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Login: </h2>
+
+<div class="container">
+    <!-- Inicia o formulário-->
+    @using (Html.BeginForm("ValidarLogin", "Home", null, FormMethod.Post))
+    {<!-- Aqui é passado (ActionResulte que será chamado apos o post, Controller em que a action está, Valor de roteamento, e metodo de postagem (get,post)) -->
+    <fieldset>
+        <legend>Credenciais de acesso:</legend>
+
+        <!-- Aqui entrará os campos do Formulário como LabelFor, TextBoxFor e PasswordFor -->
+        <div>
+            <div>
+                @Html.LabelFor(model => Model.usuario)
+            </div>
+            <div>
+                @Html.TextBoxFor(model => Model.usuario)
+            </div>
+        </div>
+
+        <div>
+            <div>
+                @Html.LabelFor(model => Model.senha)
+            </div>
+            <div>
+                @Html.PasswordFor(model => Model.senha)
+            </div>
+        </div>
+
+        <div>
+
+            <input type="submit" value="Acessar" />
+        </div>
+    </fieldset>
+    }
+</div>
+
